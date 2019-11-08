@@ -105,7 +105,12 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Posts',
           to: '/posts'
-        }
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Admin',
+          to: '/admin'
+        },
       ],
       miniVariant: false,
       right: true,

@@ -1,22 +1,27 @@
 <template>
   <div>
-    <h1>Top posts:</h1>
-    <PostList :posts="Posts" />
+    <center>
+      <Post
+      v-for="post of posts"
+      :key="post.id"
+      :id="post.id"
+      :thumbnail="post.thumbnail"
+      :title="post.title"
+    />
+    </center>
   </div>
 </template>
 
 <script>
 import Post from "~/components/Post";
-import PostList from "~/components/PostList";
-
 export default {
   components: {
-    Post,
-    PostList
+    Post
   },
-  computed: {
-    Posts(){
-      return this.$store.getters.loadedPosts
+  props: {
+    posts: {
+      type: Array,
+      required: true
     }
   }
 };

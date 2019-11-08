@@ -45,6 +45,11 @@ export default {
   '@nuxtjs/auth'
 ],
 
+axios: {
+  baseURL: 'http://localhost:3333',
+  credentials: false
+},
+
 auth: {
   // Options
 },
