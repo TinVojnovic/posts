@@ -6,12 +6,10 @@
 </template>
 
 <script>
-import Post from "~/components/Post";
 import PostList from "~/components/PostList";
 
 export default {
   components: {
-    Post,
     PostList
   },
   computed: {

@@ -7,17 +7,12 @@
 </template>
 
 <script>
-import Post from "~/components/Post";
 import axios from "axios";
 
 export default {
   validate({ params }) {
     return /^\d+$/.test(params.id);
   },
-  components: {
-    Post
-  },
-  props: {},
   asyncData(context) {
     return axios
       .get("http://localhost:3333/fetch/" + context.params.id)

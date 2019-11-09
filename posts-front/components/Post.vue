@@ -1,6 +1,6 @@
 <template>
     <section class="fetaured-posts">
-      <nuxt-link :to="'posts/' + id">
+      <nuxt-link :to="this.$route.name + '/' + id">
         <article class="post-preview">
           <div class="post-thumbnail" :style="{backgroundImage: 'url('+ thumbnail +')'}"></div>
           <div class="post-content">
