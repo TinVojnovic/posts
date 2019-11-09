@@ -7,6 +7,7 @@
         <appInput control-type="textarea" v-model="formData.content">Content:</appInput>
         <AppButton type="submit">Save</AppButton>
         <AppButton type="button" @click="onCancel">Cancel</AppButton>
+        <AppButton type="button" @click="onDelete">Delete</AppButton>
       </form>
     </section>
   </div>
@@ -15,6 +16,7 @@
 <script>
 import AppInput from "~/components/UI/AppControlInput";
 import AppButton from "~/components/UI/AppButton";
+import axios from "axios";
 
 export default {
   components: {
@@ -46,6 +48,11 @@ export default {
     },
     onCancel() {
       this.$router.push("/admin");
+    },
+    onDelete() {
+      this.$store.dispatch("deletePost", this.post).then(() => {
+        this.$router.push("/admin");
+      });
     }
   }
 };

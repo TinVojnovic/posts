@@ -27,7 +27,7 @@ class PostController {
 
         if(validation.fails()) return response.badRequest(validation.messages()) 
 
-        const post = Post.create({
+        const post = await Post.create({
             title: allParams.title,
             thumbnail: allParams.thumbnail,
             content: allParams.content

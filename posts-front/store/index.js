@@ -17,6 +17,10 @@ const createStore = () => {
             editPost(state, editedPost) {
                 const postId = state.loadedPosts.findIndex(post => post.id === editedPost.id)
                 state.loadedPosts[postId] = editedPost
+            },
+            deletePost(state, selectedPost) {
+                const postId = state.loadedPosts.findIndex(post => post.id === selectedPost.id)
+                state.loadedPosts.splice(postId)
             }
         },
         actions: {
@@ -30,7 +34,7 @@ const createStore = () => {
             createPost(vuexContext, newPost) {
                 return axios.post("http://localhost:3333/create", newPost)
                     .then(res => {
-                        vuexContext.commit('createPost', newPost)
+                        vuexContext.commit('createPost', res.data.post)
                     })
                     .catch(e => console.log(e))
             },
@@ -41,6 +45,13 @@ const createStore = () => {
                         vuexContext.commit('editPost', editedPost)
                     })
                     .catch(e => console.log(e));
+            },
+            deletePost(vuexContext, post) {
+                return axios.delete("http://localhost:3333/delete/" + post.id)
+                    .then(res => {
+                        vuexContext.commit('deletePost', post)
+                    })
+                    .catch(e => console.log(e))
             }
         },
         getters: {

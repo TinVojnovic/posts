@@ -28,7 +28,7 @@ export default {
       this.$store.dispatch("editPost", postData).then(() => {
         this.$router.push("/admin")
       });
-    }
+    },
   }
 };
 </script>
