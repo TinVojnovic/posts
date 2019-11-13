@@ -16,7 +16,8 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-_requireRoutes('Post')
+_requireRoutes('Post').prefix('api/post')
+_requireRoutes('Auth').prefix('api/auth')
 
 function _requireRoutes(group) {
   return require(`../app/Routes/${group}`)
