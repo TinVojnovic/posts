@@ -58,6 +58,10 @@ class AuthController {
             .withRefreshToken()
             .generate(user, customPayload)
     }
+
+    async me({user, response}){
+        response.ok(user)
+    }
 }
 
 module.exports = AuthController

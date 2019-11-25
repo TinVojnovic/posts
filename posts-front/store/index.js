@@ -25,14 +25,14 @@ const createStore = () => {
         },
         actions: {
             nuxtServerInit(vuexContext, context) {
-                return axios.get("http://localhost:3333/fetch")
+                return axios.get("http://localhost:3333/api/post/fetch")
                     .then(res => {
                         vuexContext.commit('setPosts', res.data.posts)
                     })
                     .catch(e => context.error(e))
             },
             createPost(vuexContext, newPost) {
-                return axios.post("http://localhost:3333/create", newPost)
+                return axios.post("http://localhost:3333/api/post/create", newPost)
                     .then(res => {
                         vuexContext.commit('createPost', res.data.post)
                     })
@@ -40,14 +40,14 @@ const createStore = () => {
             },
             editPost(vuexContext, editedPost) {
                 return axios
-                    .put("http://localhost:3333/edit/" + editedPost.id, editedPost)
+                    .put("http://localhost:3333/api/post/edit/" + editedPost.id, editedPost)
                     .then(res => {
                         vuexContext.commit('editPost', editedPost)
                     })
                     .catch(e => console.log(e));
             },
             deletePost(vuexContext, post) {
-                return axios.delete("http://localhost:3333/delete/" + post.id)
+                return axios.delete("http://localhost:3333/api/post/delete/" + post.id)
                     .then(res => {
                         vuexContext.commit('deletePost', post)
                     })

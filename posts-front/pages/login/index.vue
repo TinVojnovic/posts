@@ -11,8 +11,11 @@ export default {
   },
   methods: {
     loginUser(userInfo){
+      this.$auth.loginWith('local',{
+        data: userInfo
+      })
       console.log(userInfo)
-      alert("You've tried logging in!")
+      console.log(this.$auth.loggedIn)
     }
   }
 

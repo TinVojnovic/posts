@@ -7,7 +7,10 @@
 <script>
 
 export default {
-  components: {
+  data(){
+    return{
+      layout: 'none',
+    }
   }
 }
 </script>

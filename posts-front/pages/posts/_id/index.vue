@@ -15,7 +15,7 @@ export default {
   },
   asyncData(context) {
     return axios
-      .get("http://localhost:3333/fetch/" + context.params.id)
+      .get("http://localhost:3333/api/post/fetch/" + context.params.id)
       .then(res => {
         console.log(res.data.post)
         return {

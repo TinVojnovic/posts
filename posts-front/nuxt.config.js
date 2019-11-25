@@ -46,12 +46,22 @@ export default {
 ],
 
 axios: {
-  baseURL: 'http://localhost:3333',
+  baseURL: 'http://localhost:3333/api/auth',
   credentials: false
 },
 
 auth: {
-  // Options
+  strategies: {
+    local: {
+      endpoints: {
+        login: { url: '/login', method: 'post', propertyName: 'token' },
+        logout: false,
+        user: { url: '/me', method: 'get', propertyName: '' }
+      },
+      // tokenRequired: true,
+      // tokenType: 'bearer'
+    }
+  }
 },
   /*
   ** vuetify module configuration

@@ -24,8 +24,8 @@ export default {
       showPassword: true,
       userInfo: {
         username: "",
-        email: "",
-        password: ""
+        email: "pero@gmail.com",
+        password: "123"
       }
     };
   },

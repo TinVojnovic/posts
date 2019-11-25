@@ -12,9 +12,14 @@ export default {
   components: {
     AdminPostForm
   },
+  data() {
+    return {
+      loadedPost: {},
+    };
+  },
   asyncData(context) {
     return axios
-      .get("http://localhost:3333/fetch/" + context.params.postId)
+      .get("http://localhost:3333/api/post/fetch/" + context.params.postId)
       .then(res => {
         console.log(res.data.post);
         return {
@@ -26,9 +31,9 @@ export default {
   methods: {
     onSubmitted(postData) {
       this.$store.dispatch("editPost", postData).then(() => {
-        this.$router.push("/admin")
+        this.$router.push("/admin");
       });
-    },
+    }
   }
 };
 </script>
